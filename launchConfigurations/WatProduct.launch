@@ -1,0 +1,22 @@
+{
+    "Params": {
+        "DevMode": {
+            "Instrumentation": {
+                "command": "",
+                "env": {"BLUEMIX_APP_MGMT_ENABLE": "devconsole+shell+inspector"},
+                "memory": "256M"
+            },
+            "Packager": "com.ibm.perfectstorm.cloudoe.packager.LiveEditDeploymentPackager"
+        },
+        "Name": "WatProduct",
+        "Target": {
+            "Org": "lo.william97@gmail.com",
+            "Space": "dev",
+            "Url": "https://api.ng.bluemix.net"
+        },
+        "Timeout": 60
+    },
+    "Path": "",
+    "ServiceId": "com.ibm.cloudoe.orion.client.deploy",
+    "Type": "Cloud Foundry"
+}
