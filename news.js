@@ -7,7 +7,7 @@ var alchemy_data_news = watson.alchemy_data_news({
 });
 
 //insert keyword here
-var keyWord = '';
+var keyWord = 'iPhone';
 
 var params = {
   start: 'now-1d',
