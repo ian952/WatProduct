@@ -1,0 +1,77 @@
+body {
+	background-color: #424242;
+	padding-top: 150px;
+}
+
+h1 {
+	font-size: 60px;
+	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+	color:white;
+}
+div.modal-content {
+	height:100%;
+
+	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+	font-size: 20px;
+}
+
+div.container {
+	width: 90%;
+}
+
+#userInput {
+	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+	font-size: 30px;
+	height:60px;
+	margin-top: 30px;
+	margin-bottom: 50px;
+}
+
+button.close {
+	font-size: 50px;
+}
+
+
+div.panel-heading {
+	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+	font-size: 15px;
+}
+
+#comment{
+	height:100px;
+}
+
+.dynamicTextBox:after {
+	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+	display: inline-block;
+	position: relative;
+	margin: 10px 0 10px 0;
+	padding: 20px 15px 20px 15px;
+	overflow:hidden;
+	border: 2px solid white;
+	background:transparent;
+	width:350px;
+	height:70px;
+	line-height: 100%;
+	color: white;
+	font-size: 30px;
+	text-align: center;
+	cursor:pointer;
+	content:attr(text-inactive);
+
+	-webkit-transition: font-size 0.5s, background-color 0.5s ease, width 0.5s, height 0.5s;
+	transition: font-size 0.5s, background-color 0.5s ease, width 0.5s, height 0.5s;
+
+}
+
+
+
+.dynamicTextBox:hover:after {
+	background-color:rgba(10, 10, 10, 1);
+	content:attr(text-active);
+
+
+	-webkit-transition: width 0.5s, height 0.5s, background-color 0.5s ease, font-size 0.5s;
+	transition: width 0.5s, height 0.5s, background-color 0.5s ease, font-size 0.5s;
+
+}
