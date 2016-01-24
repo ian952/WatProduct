@@ -5,11 +5,11 @@ var links = [];
 var total_score = 0;
 var total_weight = 0;
 var NUM_KEYWORD = 1;
-var NUM_LINKS = 20;
+var NUM_LINKS = 10;
 var score;
 var watson = require('watson-developer-cloud');
 var params = {
-  start: 'now-1d',
+  start: 'now-60d',
   end: 'now',
   //set number of entries returned
   count: NUM_LINKS,
