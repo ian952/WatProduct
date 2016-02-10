@@ -1,5 +1,11 @@
 'use strict';
 
+$(document).ready(function() {
+    
+	flowController.emit('news');    
+});
+
+
 var keyword = 'iPhone';
 var links = [];
 var total_score = 0;
@@ -66,8 +72,9 @@ flowController.on('sentiment', function (a) {
 
 	  		
 
-		  	console.log (links[a].url);
-		  	console.log (response.results[j].sentiment.score);
+		  	//console.log (links[a].url);
+		  	//console.log (response.results[j].sentiment.score);
+
 		  	//console.log (total_weight);
 		  	//console.log (total_score);
 		  }
@@ -84,8 +91,6 @@ flowController.on('finished', function () {
   	//console.log (total_weight);
 	console.log(score);
 });
-
-flowController.emit('news');
 
 
 

@@ -3,7 +3,6 @@
 var express = require('express');
 var fs      = require('fs');
 
-
 /**
  *  Define the sample application.
  */
