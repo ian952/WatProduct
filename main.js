@@ -5,7 +5,7 @@ var links = [];
 var total_score = 0;
 var total_weight = 0;
 var NUM_KEYWORD = 1;
-var NUM_LINKS = 20;
+var NUM_LINKS = 5;
 var score;
 var watson = require('watson-developer-cloud');
 var params = {
@@ -53,13 +53,18 @@ flowController.on('sentiment', function (a) {
 
   alchemy_language.sentiment(links[a], function (err, response) {
 	  if (err){
-	    console.log('error:', err);
-		console.log (links[a].url);
+	    //console.log('error:', err);
+		//console.log (links[a].url);
 	  }else {
 	  	for (var j = 0; j < NUM_KEYWORD; j++) {
-		  	total_weight += 1;
 
-		  	total_score += parseFloat(response.results[j].sentiment.score);
+		  		total_weight += 1;
+		  		if (!(response.results[j].sentiment.type == 'neutral')) {
+		  			total_score += parseFloat(response.results[j].sentiment.score);
+		  		}
+		  		//console.log (JSON.stringify(response, null, 2));
+
+	  		
 
 		  	console.log (links[a].url);
 		  	console.log (response.results[j].sentiment.score);
@@ -75,6 +80,8 @@ flowController.on('sentiment', function (a) {
 
 flowController.on('finished', function () {
   	score = total_score / total_weight;
+  	//console.log (total_score);
+  	//console.log (total_weight);
 	console.log(score);
 });
 
