@@ -1,18 +1,19 @@
 extend layout
 
+block text
+    | Button
 block content
   p
     | Vivamus hendrerit arcu sed erat molestie
     | vehicula. Sed auctor neque eu tellus
     | rhoncus ut eleifend nibh porttitor. Ut in.
     
-  p
-    | Donec congue lacinia dui, a porttitor
-    | lectus condimentum laoreet. Nunc eu
-    | ullamcorper orci. Quisque eget odio ac
-    | lectus vestibulum faucibus eget in metus.
-    | In pellentesque faucibus vestibulum. Nulla
-    | at nulla justo, eget luctus tortor.
+  form(action="/claim", method="post")
+    label Input something
+    br
+    input(type="text", name="address", size=50)
+    br
+    input(type="submit", value="Submit")
 
 block sidebar
   .widget
