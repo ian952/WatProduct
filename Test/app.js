@@ -4,7 +4,40 @@
 var express = require('express')
   , stylus = require('stylus')
   , nib = require('nib')
+var keyword = 'Surface';
+var links = [];
+var total_score = 0;
+var total_weight = 0;
+var NUM_KEYWORD = 1;
+var NUM_LINKS = 5;
+var score = 0;
+var watson = require('watson-developer-cloud');
+var params = {
+  start: 'now-1d',
+  end: 'now',
+  //set number of entries returned
+  count: NUM_LINKS,
+  'q.enriched.url.enrichedTitle.keywords.keyword.text':keyword,
+  return: 'enriched.url.url,enriched.url.title'
+};
+var events = require('events');
+var EventEmitter = events.EventEmitter;
 
+function compile(str, path) {
+  return stylus(str)
+    .set('filename', path)
+    .use(nib());
+}
+
+var flowController = new EventEmitter();
+
+var alchemy_data_news = watson.alchemy_data_news({
+  api_key: 'b87dde35a90f3c811699dd78c9a78ef86cb255a3'
+});
+var alchemy_language = watson.alchemy_language({
+  //api_key: '437cec71bb1624d205590209fa9b0161e7f4fff4'
+  api_key: 'b87dde35a90f3c811699dd78c9a78ef86cb255a3'
+});
 
 var app = express()
 
@@ -25,12 +58,29 @@ app.use(stylus.middleware(
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', function (req, res) {
-  res.render('index',
-  { title : 'Home' }
-  )
+  flowController.emit('news');
+  flowController.on ('render',function () {
+
+    var msg;
+    if (score > 0.5) {
+      msg = 'Overwhelmingly Positive';
+    } else if (score > 0.05 && score <= 0.5) {
+      msg = 'Positive';
+    } else if (score >= -0.05 && score <= 0.05) {
+      msg = 'Neutral';
+    } else if (score < -0.05 && score >= -0.5) {
+      msg = 'Negative';
+    } else if (score < -0.5){
+      msg = 'Overwhelmingly Negative';
+    } else {
+      msg = 'Error';
+    }
+
+    res.render('index',
+    { title : 'Home', product : keyword, scoreout : msg }
+    )
+  })
 })
-
-
 
 flowController.on('news', function() {
   alchemy_data_news.getNews(params, function (err, news) {
