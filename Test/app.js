@@ -8,7 +8,7 @@ var express = require('express')
 
 
 var app = express()
-var keyword = 'iPhone';
+var keyword = 'Surface';
 var links = [];
 var total_score = 0;
 var total_weight = 0;
@@ -57,8 +57,24 @@ app.use(express.static(__dirname + '/public'))
 app.get('/', function (req, res) {
   flowController.emit('news');
   flowController.on ('render',function () {
+
+    var msg;
+    if (score > 0.5) {
+      msg = 'Overwhelmingly Positive';
+    } else if (score > 0.05 && score <= 0.5) {
+      msg = 'Positive';
+    } else if (score >= -0.05 && score <= 0.05) {
+      msg = 'Neutral';
+    } else if (score < -0.05 && score >= -0.5) {
+      msg = 'Negative';
+    } else if (score < -0.5){
+      msg = 'Overwhelmingly Negative';
+    } else {
+      msg = 'Error';
+    }
+
     res.render('index',
-    { title : 'Home', scoreout : (score.toString()) }
+    { title : 'Home', product : keyword, scoreout : msg }
     )
   })
 })
