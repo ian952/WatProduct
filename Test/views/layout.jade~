@@ -1,6 +1,7 @@
 doctype html
 html
   head
+<<<<<<< HEAD
     title #{title} - Wat-Product
     link(href='/css/bootstrap.min.css', rel='stylesheet')
     link(href='/css/custom.css', rel='stylesheet')
@@ -14,4 +15,18 @@ html
        h1 
       |Sentiment towards #{product} is #{scoreout}
 
-
+=======
+    title #{title} - My Site
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    header
+      h1 
+      |Sentiment towards #{product} is #{scoreout}
+    .container
+      .main-content
+        block content
+      .sidebar
+        block sidebar
+    footer
+      p Running on node with Express, Jade and Stylus
+>>>>>>> origin/master
