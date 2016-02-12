@@ -85,7 +85,7 @@ app.post('/', function(req, res) {
       msg = 'Error';
     }
 
-    res.render('index',
+    res.render('results',
     { title : 'Home', product : keyword, scoreout : msg }
     )
   })
