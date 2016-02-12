@@ -37,6 +37,7 @@ function compile(str, path) {
 var flowController = new EventEmitter();
 
 var alchemy_data_news = watson.alchemy_data_news({
+  //api_key: '437cec71bb1624d205590209fa9b0161e7f4fff4'
   api_key: 'b87dde35a90f3c811699dd78c9a78ef86cb255a3'
 });
 var alchemy_language = watson.alchemy_language({
