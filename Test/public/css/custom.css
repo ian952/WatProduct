@@ -15,6 +15,18 @@ h1 {
 	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
 	color:white;
 }
+
+h2 {
+	font-size: 45px;
+	color:white;
+	font-weight: bold;
+
+}
+
+.resultText {
+	color: white;
+	font-size: 30px;
+}
 div.modal-content {
 	height:100%;
 
