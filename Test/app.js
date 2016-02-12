@@ -66,10 +66,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.post('/', function(req, res) {
     console.log(req.body.product_name); // show the value of the text box
     keyword = req.body.product_name;
-});
 
-app.get('/', function (req, res) {
-  flowController.emit('news');
+    flowController.emit('news');
   flowController.on ('render',function () {
 
     var msg;
@@ -91,6 +89,11 @@ app.get('/', function (req, res) {
     { title : 'Home', product : keyword, scoreout : msg }
     )
   })
+});
+
+app.get('/', function (req, res) {
+  res.render('index',{}
+    )
 })
 
 flowController.on('news', function() {
