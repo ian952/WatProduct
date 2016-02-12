@@ -14,8 +14,9 @@ html
   body(align='center')
       h1
         |WAT-Product
-      input#userInput.form-control(onclick='this.setSelectionRange(0, this.value.length)', type='text', value='Please enter a product')
-      .dynamicTextBox(id='inputButton' text-inactive='Enter' text-active='Click!' type='button' data-toggle='modal' data-target='#myModal')
+      form(name="product-name", method="post")  
+        input#userInput.form-control(onclick='this.setSelectionRange(0, this.value.length)', type='text', value='Please enter a product', name='product_name')
+        .dynamicTextBox(id='inputButton', type='submit', value='add', text-inactive='Enter' text-active='Click!', data-toggle='modal', data-target='#myModal')
       
        #myModal.portfolio-modal.modal.fade(role='dialog')
         .modal-content

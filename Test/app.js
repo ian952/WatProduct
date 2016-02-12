@@ -2,8 +2,11 @@
  * Module dependencies
  */
 var express = require('express')
+  , fs = require('fs')
   , stylus = require('stylus')
   , nib = require('nib')
+  , http = require('http')
+  , path = require('path');
 var keyword = 'Surface';
 var links = [];
 var total_score = 0;
@@ -22,6 +25,8 @@ var params = {
 };
 var events = require('events');
 var EventEmitter = events.EventEmitter;
+var bodyParser = require('body-parser');
+
 
 function compile(str, path) {
   return stylus(str)
@@ -56,6 +61,12 @@ app.use(stylus.middleware(
   }
 ))
 app.use(express.static(__dirname + '/public'))
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.post('/', function(req, res) {
+    console.log(req.body.product_name); // show the value of the text box
+    keyword = req.body.product_name;
+});
 
 app.get('/', function (req, res) {
   flowController.emit('news');

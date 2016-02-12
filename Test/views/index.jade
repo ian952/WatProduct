@@ -1,19 +1,9 @@
 extend layout
 
 block content
-  p
-    | Vivamus hendrerit arcu sed erat molestie
-    | vehicula. Sed auctor neque eu tellus
-    | rhoncus ut eleifend nibh porttitor. Ut in.
-
-block sidebar
-  .widget
-    h1 Widget
-    p
-      | Sed auctor neque eu tellus rhoncus ut
-      | eleifend nibh porttitor. Ut in nulla enim.
-    
-    p
-      | Vivamus hendrerit arcu sed erat molestie
-      | vehicula.
-
+  form(name="product-name", method="post")
+        div.input
+            span.label Enter a Product
+            input(type="text", name="product_name")
+        div.actions
+            input(type="submit", value="add")
