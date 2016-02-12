@@ -2,8 +2,4 @@ extend layout
 
 block content
   form(name="product-name", method="post")
-        div.input
-            span.label Enter a Product
-            input(type="text", name="product_name")
-        div.actions
-            input(type="submit", value="add")
+        input#userInput.form-control(onclick='this.setSelectionRange(0, this.value.length)', type='text', value='Please enter a product', name='product_name')
