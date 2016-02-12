@@ -38,11 +38,13 @@ var flowController = new EventEmitter();
 
 var alchemy_data_news = watson.alchemy_data_news({
   //api_key: '437cec71bb1624d205590209fa9b0161e7f4fff4'
-  api_key: 'b87dde35a90f3c811699dd78c9a78ef86cb255a3'
+  //api_key: 'b87dde35a90f3c811699dd78c9a78ef86cb255a3'
+  api_key: 'd5f9bd1f28fa766eb6a675c783d261a8e2d680ea'
 });
 var alchemy_language = watson.alchemy_language({
   //api_key: '437cec71bb1624d205590209fa9b0161e7f4fff4'
-  api_key: 'b87dde35a90f3c811699dd78c9a78ef86cb255a3'
+  //api_key: 'b87dde35a90f3c811699dd78c9a78ef86cb255a3'
+  api_key: 'd5f9bd1f28fa766eb6a675c783d261a8e2d680ea'
 });
 
 var app = express()
