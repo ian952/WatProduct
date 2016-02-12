@@ -1,17 +1,28 @@
 doctype html
 html
   head
-    title #{title} - My Site
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    header
-      h1 
-      |Sentiment towards #{product} is #{scoreout}
-    .container
-      .main-content
-        block content
-      .sidebar
-        block sidebar
-    footer
-      p Running on node with Express, Jade and Stylus
+    title #{title} - Wat-Product
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/css/custom.css', rel='stylesheet')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    script(src='js/bootstrap.min.js')
+    script(type='text/javascript').
+      $('#PageRefresh').click(function() {
+        location.reload();
+      });
+
+  body(align='center')
+      h1
+        |WAT-Product
+      input#userInput.form-control(onclick='this.setSelectionRange(0, this.value.length)', type='text', value='Please enter a product')
+      .dynamicTextBox(id='inputButton' text-inactive='Enter' text-active='Click!' type='button' data-toggle='modal' data-target='#myModal')
+      
+       #myModal.portfolio-modal.modal.fade(role='dialog')
+        .modal-content
+          .modal-header
+            |Result on #{product}
+          .modal-body
+            p 
+              |Sentiment towards #{product} is #{scoreout}
+
 

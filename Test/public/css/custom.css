@@ -1,6 +1,7 @@
 body {
 	background-color: #424242;
 	padding-top: 150px;
+	text-align: center;
 }
 
 h1 {
@@ -32,6 +33,7 @@ div.container {
 	width:70%;
 	margin-top: 30px;
 	margin-bottom: 50px;
+	margin-left: 200px;
 }
 
 button.close {
