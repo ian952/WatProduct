@@ -1,7 +1,7 @@
-Basic Express Site
+WatProduct
 ==================
 
-Source code example for [A simple website in node.js with express, jade and stylus](http://www.clock.co.uk/blog/a-simple-website-in-nodejs-with-express-jade-and-stylus) article.
+A website built with Node.js and Bootstrap, which uses the Watson news and document analytics API to generate a score based on popularity and reception of products
 
 Build
 -----
@@ -23,4 +23,4 @@ Run this command in console:
 node app.js
 ```
 
-Open `http://localhost:3000` to access basic Express Site.
+Website will be hosted on `http://localhost:3000` 
